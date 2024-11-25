@@ -1,0 +1,125 @@
+/*
+1920 x 1080 - Done
+1440 x 900 (16:9 aspect ratio) - Done
+1366 x  768 (16:9 aspect ratio) - done
+1024 x 768 (4:3 aspect ratio) - done
+768 x 1024 (portrait mode) - Done
+414 x 896 (16:9 aspect ratio) - Done
+320 x568 (16:9 aspect ratio) - Done
+WORKS DOWN TO 300px
+*/
+
+@media only screen and (max-width: 1440px)
+{
+    .socials
+    {
+        width: 33vw;
+    }
+}
+
+@media only screen and (max-width: 1024px)
+{
+    .contact
+    {
+        width: 90%;
+    }
+    .mainWrapper
+    {
+        grid-template-columns: repeat(1, 1fr);
+        padding-left: 30px;
+        padding-right: 30px;
+        row-gap: 40px;
+    }
+
+    .mainWrapper > :nth-last-child(1):nth-child(odd) 
+    {
+        width: 100%;
+    }
+    .socials
+    {
+        width: 70vw;
+    }
+    .socials_name
+    {
+        font-size: 16px;
+    }
+    .socials_name:hover
+    {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 768px)
+{
+    .socials
+    {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 576px)
+{
+    .mainWrapper
+    {
+        padding-top: 80px;
+    }
+
+    .socials_name
+    {
+        margin-right: 20px;
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 376px)
+{
+    .mainWrapper
+    {
+        padding-top: 120px;
+    }
+    .contact
+    {
+        width: 83%;    
+        font-size: 12px;
+    }
+    .headPanel
+    {
+        height: 100px;
+        font-size: 12px;
+    }
+    .socials
+    {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        height: 100px;
+    }
+
+    .socials img
+    {
+        max-height: 30px;
+    }
+
+    .socials_name
+    {
+        height: auto;
+    }
+    .infoBox
+    {
+        font-size: 12px;
+        height: fit-content;
+    }
+    .textbox
+    {
+        font-size: 12px;
+    }
+    #contactButton
+    {
+        font-size: 12px;
+    }
+
+    .icon
+    {
+    width: 10%;
+    height: 10%;
+    }
+}

@@ -1,0 +1,38 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.block {
+    height: auto;
+    width: 20%;
+    padding: 10px;
+    background-color: aqua;
+    border: 2px solid black;
+    box-sizing: border-box;
+    font-family: "Comic Sans MS", sans-serif;
+    text-align: center;
+}
+
+h1
+{
+    width: 69%;
+    margin-top: 20px;
+    height: 50px;
+
+    font-size: xx-large;
+    text-align: center;
+    background-color: white;
+}
+
+body
+{
+    margin-top: 0;
+    background-image: url(/obrazky/Ultimate2.png);
+    background-size: cover; /* Cover entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Don't repeat the image */
+}
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Calculator">
+        <meta name="author" content="Kamil Franek">
+        <title>Kamil Franek</title>
+        <script src="pain.js"></script>
+    </head>
+<body>
+    <div>
+        <label>Cislo A: </label>
+        <input type="text" id="cislo1">
+        <label>Cislo B: </label>
+        <input type="text" id="cislo2">
+        <select id="operace">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="button" id="tlacitko" value="Calculate" onclick="calculate()"> <br>
+        <label>Vysledek: </label>
+        <label id="vysledek"></label>
+    </div>
+</body>
+</html>
