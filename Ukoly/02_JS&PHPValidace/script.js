@@ -1,9 +1,15 @@
-btn = document.getElementById("submit");
-btn.addEventListener("click", validate);
+const form = document.getElementById("contact-form");
 
-function validate() {
-    console.log("validating");
-    name = document.getElementById("name").value;
+form.addEventListener("submit", validate);
+
+function makeAlert(text) {
+
+}
+
+function validate(event) {
+    event.preventDefault();
+    console.log("HelloWorld");
+    namus = document.getElementById("name").value;
     surname = document.getElementById("surname").value;
     email = document.getElementById("mail").value;
     tel = document.getElementById("tel").value;
@@ -13,47 +19,61 @@ function validate() {
 
     alertOk = document.getElementById("alert-ok");
     alertBad = document.getElementById("alert-bad");
-    alertBadText = document.getElementById("alert-bad-text")
+    alertBadText = document.getElementById("alert-bad-text");
 
-    if (name == "" || surname == "" || email == "" || tel == "" || address == "" || town == "") {
-        alertBadText.innerText = "Please fill out all the fields."
+    let hasError = false; 
+
+    if (namus == "" || surname == "" || email == "" || tel == "" || address == "" || town == "") {
+        alertBadText.innerText = "Please fill out all the fields.";
         alertBad.classList.add("alert-active");
         setTimeout(function() {
             alertBad.classList.remove("alert-active");
         }, 5000);
+        hasError = true;
     }
-    else if(email.includes("@") == false || email.includes(".") == false) {
-        alertBadText.innerText = "Please fill out the e-mail address properly."
+    if(email.includes("@") == false || email.includes(".") == false) {
+        alertBadText.innerText = "Please fill out the e-mail address properly.";
         alertBad.classList.add("alert-active");
         setTimeout(function() {
             alertBad.classList.remove("alert-active");
         }, 5000);
+        hasError = true;
     }
-    else if(tel.length != 11) {
-        alertBadText.innerText = "Please fill out the telephone number properly."
+    if(tel.length != 11) {
+        alertBadText.innerText = "Please fill out the telephone number properly.";
         alertBad.classList.add("alert-active");
         setTimeout(function() {
             alertBad.classList.remove("alert-active");
         }, 5000);
+        hasError = true;
     }
-    else if(!/\d/.test(address)) {
-        alertBadText.innerText = "Please fill out the address properly"
+    if(!/\d/.test(address)) {
+        alertBadText.innerText = "Please fill out the address properly";
         alertBad.classList.add("alert-active");
         setTimeout(function() {
             alertBad.classList.remove("alert-active");
         }, 5000);
+        hasError = true;
     }
-    else if(message.length > 255) {
-        alertBadText.innerText = "Maximum length of 255 exceeded in message."
+    if(message.length > 255) {
+        alertBadText.innerText = "Maximum length of 255 exceeded in message.";
         alertBad.classList.add("alert-active");
         setTimeout(function() {
             alertBad.classList.remove("alert-active");
         }, 5000);
+        hasError = true;
     }
-    else {
+
+    if (!hasError) {
         alertOk.classList.add("alert-active");
         setTimeout(function() {
             alertOk.classList.remove("alert-active");
         }, 5000);
+        setTimeout(function() {
+            document.getElementById("contact-form").submit(); 
+        }, 500);
+
+
     }
+
 }

@@ -18,7 +18,7 @@
     </div>
     <div class="form-container">
         <h1>Kontaktní formulář</h1>
-        <form>
+        <form id="contact-form" name="contact-form" method="POST">
             <h2>Jméno</h2>
             <input type="text" id="name" name="name" >
             <h2>Přijmení</h2>
@@ -33,13 +33,53 @@
             <input type="text" id="town" name="town" >
             <h2>Zpráva</h2>
             <textarea type="textarea" id="message" name="message"> </textarea>
-            <button type="button" id="submit">Odeslat</button>
+            <button type="submit" id="btnSubmit">Odeslat</button>
         </form> 
     </div>
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST')
+    {
+      $errors = [];
+      $namus = $_POST['name'];
+      $surname = $_POST['surname'];
+      $email = $_POST['mail'];
+      $tel = $_POST['tel'];
+      $address = $_POST['address'];
+      $town = $_POST['town'];
+      $message = $_POST['message'];
+      
+      // Validation checks
+      if (empty($namus) || empty($surname) || empty($email) || empty($tel) || empty($address) || empty($town)) {
+          $errors[] = "Please fill out all the fields.";
+      }
+      
+      if (strpos($email, '@') === false || strpos($email, '.') === false) {
+          $errors[] = "Please fill out the e-mail address properly.";
+      }
+      
+      if (!preg_match('/^\+?[\d\s]+$/', $tel)) 
+      {
+        $errors[] = "Please enter a valid telephone number.";
+      } 
+          
+      if (!preg_match('/\d/', $address)) { //!preg_match('/\d/', $address) == checks if it contains atleast one digit
+          $errors[] = "Please fill out the address properly.";
+      }
+      
+      if (strlen($message) > 255) {
+          $errors[] = "Maximum length of 255 exceeded in message.";
+      }
+      if (!empty($errors)) {
+          foreach ($errors as $error) 
+          {
+              echo "ERROR: " . $error . "<br>";
+          }
+      } 
+      else echo "Validation successful.";   
+    } 
+    ?>
 
-    <!-- Slider main container -->
     <div class="swiper">
-        <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Slide 1">
@@ -51,14 +91,9 @@
             <img src="https://www.w3schools.com/w3images/mountains.jpg" alt="Slide 3">
           </div>
         </div>
-        <!-- If we need pagination -->
         <div class="swiper-pagination"></div>
-    
-        <!-- If we need navigation buttons -->
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
-    
-        <!-- If we need scrollbar -->
         <div class="swiper-scrollbar"></div>
       </div>
 </body>
